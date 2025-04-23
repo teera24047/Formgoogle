@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟอร์มขอเพลง</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 90%;
+            max-width: 400px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ฟอร์มขอเพลง</h1>
+
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSc115-EFAMIOq4aaW6jBGkfIzQvuAWrLBtmfJEUQcRPlJw/formResponse" method="POST" target="_blank">
+        <div class="form-group">
+            <label for="song_morning">ขอเพลงช่วงเช้า:</label>
+            <input type="text" id="song_morning" name="entry.xxxxxxxxx" required placeholder="ชื่อเพลง หรือ ชื่อเพลง + ศิลปิน">
+        </div>
+
+        <div class="form-group">
+            <label for="song_afternoon">ขอเพลงช่วงกลางวัน:</label>
+            <input type="text" id="song_afternoon" name="entry.yyyyyyyyy" required placeholder="ชื่อเพลง หรือ ชื่อเพลง + ศิลปิน">
+        </div>
+
+        <div class="form-group">
+            <label for="song_evening">ขอเพลงช่วงหลังเลิกงาน:</label>
+            <input type="text" id="song_evening" name="entry.zzzzzzzzz" required placeholder="ชื่อเพลง หรือ ชื่อเพลง + ศิลปิน">
+        </div>
+
+        <button type="submit">ส่งคำขอ</button>
+    </form>
+
+</body>
+</html>
