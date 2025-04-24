@@ -6,29 +6,46 @@
     <title>ฟอร์มขอเพลง</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            max-width: 500px;
+            margin: auto;
         }
         .form-group {
             margin-bottom: 15px;
+            text-align: left;
         }
         label {
-            display: block;
-            margin-bottom: 5px;
+            font-weight: bold;
         }
         input[type="text"] {
-            width: 90%;
-            max-width: 400px;
-            padding: 8px;
+            width: 100%;
+            padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 5px;
+            font-size: 16px;
         }
         button {
             padding: 10px 20px;
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            width: 100%;
         }
         button:hover {
             background-color: #0056b3;
@@ -38,26 +55,27 @@
 <body>
 
     <h1>ฟอร์มขอเพลง</h1>
+    <div class="form-container">
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSenjUCKAz_xXjh_NKLTiCUFqyoOGUelyYLKcx50xL9lNi95Lg/formResponse" method="POST" target="_blank">
 
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSenjUCKAz_xXjh_NKLTiCUFqyoOGUelyYLKcx50xL9lNi95Lg/formResponse" method="POST" target="_blank">
+            <div class="form-group">
+                <label for="song_morning">ขอเพลงช่วงเช้า:</label>
+                <input type="text" id="song_morning" name="entry.1770323833" required placeholder="ชื่อเพลง หรือ ชื่อเพลง + ศิลปิน">
+            </div>
 
-        <div class="form-group">
-            <label for="song_morning">ขอเพลงช่วงเช้า:</label>
-            <input type="text" id="song_morning" name="entry.1770323833" required placeholder="ชื่อเพลง หรือ ชื่อเพลง + ศิลปิน">
-        </div>
+            <div class="form-group">
+                <label for="song_afternoon">ขอเพลงช่วงกลางวัน:</label>
+                <input type="text" id="song_afternoon" name="entry.1016140276" required placeholder="ชื่อเพลง หรือ ชื่อเพลง + ศิลปิน">
+            </div>
 
-        <div class="form-group">
-            <label for="song_afternoon">ขอเพลงช่วงกลางวัน:</label>
-            <input type="text" id="song_afternoon" name="entry.1016140276" required placeholder="ชื่อเพลง หรือ ชื่อเพลง + ศิลปิน">
-        </div>
+            <div class="form-group">
+                <label for="song_evening">ขอเพลงช่วงหลังเลิกงาน:</label>
+                <input type="text" id="song_evening" name="entry.967994178" required placeholder="ชื่อเพลง หรือ ชื่อเพลง + ศิลปิน">
+            </div>
 
-        <div class="form-group">
-            <label for="song_evening">ขอเพลงช่วงหลังเลิกงาน:</label>
-            <input type="text" id="song_evening" name="entry.967994178" required placeholder="ชื่อเพลง หรือ ชื่อเพลง + ศิลปิน">
-        </div>
-
-        <button type="submit">ส่งคำขอ</button>
-    </form>
+            <button type="submit">ส่งคำขอ</button>
+        </form>
+    </div>
 
 </body>
 </html>
