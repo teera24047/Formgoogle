@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ฟอร์มขอเพลง • Song Request</title>
-  <meta name="theme-color" content="#5a67ff" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>ฟอร์มขอเพลง • Song Request</title>
+<meta content="#5a67ff" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700&amp;family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
     :root{
       --bg1:#5a67ff;
       --bg2:#ff7eb3;
@@ -225,88 +226,106 @@
   </style>
 </head>
 <body>
-  <div class="bubble b1"></div>
-  <div class="bubble b2"></div>
-  <div class="bubble b3"></div>
+<div class="bubble b1"></div>
+<div class="bubble b2"></div>
+<div class="bubble b3"></div>
+<main class="card" role="main">
+<header>
+<div aria-hidden="true" class="logo">
+<svg aria-hidden="true" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 8.5C4 5.462 6.462 3 9.5 3c1.63 0 3.09.747 4.05 1.914A5.5 5.5 0 0 1 20 10.25c0 3.038-2.462 5.5-5.5 5.5H9.5A3.5 3.5 0 1 1 9.5 8h5" stroke="#111" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<div>
+<h1>ฟอร์มขอเพลง</h1>
+<p>ใส่รายชื่อเพลงที่อยากฟังในแต่ละช่วงเวลา ทุกคำขอจะถูกส่งไปยัง Google Forms</p>
+</div>
+<p style="margin:6px 0 0;color:rgba(255,255,255,.85);font-size:12px">หมายเหตุ: ฟอร์มนี้จะส่งข้อมูลเข้า Google Sheet โดยอัตโนมัติ</p></header>
+<form action="SCRIPT_URL" id="songRequestForm" method="POST" novalidate="">
+<div class="grid">
+<div class="form-group">
+<label for="requester_name">👤 ชื่อผู้ขอเพลง</label>
+<svg class="icon" fill="none" viewbox="0 0 24 24">
+<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4Zm0 2c-3.33 0-6 2.67-6 6h12c0-3.33-2.67-6-6-6Z" stroke="#111" stroke-linecap="round" stroke-width="1.6"></path>
+</svg>
+<input autocomplete="off" class="input" id="requester_name" maxlength="100" name="name" placeholder="กรอกชื่อของคุณ" required="" type="text"/>
+</div>
 
-  <main class="card" role="main">
-    <header>
-      <div class="logo" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M4 8.5C4 5.462 6.462 3 9.5 3c1.63 0 3.09.747 4.05 1.914A5.5 5.5 0 0 1 20 10.25c0 3.038-2.462 5.5-5.5 5.5H9.5A3.5 3.5 0 1 1 9.5 8h5" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div>
-        <h1>ฟอร์มขอเพลง</h1>
-        <p>ใส่รายชื่อเพลงที่อยากฟังในแต่ละช่วงเวลา ทุกคำขอจะถูกส่งไปยัง Google Forms</p>
-      </div>
-    </header>
+<div class="form-group">
+<label for="requester_email">📧 อีเมลผู้ขอเพลง</label>
+<svg class="icon" fill="none" viewbox="0 0 24 24">
+<path d="M4 4h16v16H4z" fill="none" stroke="#111" stroke-linecap="round" stroke-width="1.6"></path>
+<path d="M4 4l8 8 8-8" stroke="#111" stroke-linecap="round" stroke-width="1.6"></path>
+</svg>
+<input autocomplete="off" class="input" id="requester_email" maxlength="200" name="email" placeholder="your@email.com" required="" type="email"/>
+</div>
 
-    <form id="songRequestForm" action="https://docs.google.com/forms/d/e/1FAIpQLSenjUCKAz_xXjh_NKLTiCUFqyoOGUelyYLKcx50xL9lNi95Lg/formResponse" method="POST" novalidate>
-      <div class="grid">
-        <!-- Morning -->
-        <div class="form-group">
-          <label for="song_morning">🌅 ขอเพลงช่วงเช้า <span class="pill" aria-hidden="true" style="margin-left:6px;font-size:11px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:2px 8px;border-radius:999px;">ใส่ได้หลายเพลง</span></label>
-          <svg class="icon" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12h14M12 5v14" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-          <input class="input" type="text" id="song_morning" name="entry.1770323833" required placeholder="ชื่อเพลง, หรือ ชื่อเพลง + ศิลปิน" maxlength="200" autocomplete="off"/>
-          <div class="counter" id="c_morning">0 / 200</div>
-          <small class="hint">ตัวอย่าง: “แสงสุดท้าย - Bodyslam, วันหนึ่งฉันเดินเข้าป่า - Max Jenmana”</small>
-        </div>
+<!-- Morning -->
+<div class="form-group">
+<label for="song_morning">🌅 ขอเพลงช่วงเช้า <span aria-hidden="true" class="pill" style="margin-left:6px;font-size:11px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:2px 8px;border-radius:999px;">ใส่ได้หลายเพลง</span></label>
+<svg class="icon" fill="none" viewbox="0 0 24 24">
+<path d="M5 12h14M12 5v14" stroke="#111" stroke-linecap="round" stroke-width="1.6"></path>
+</svg>
+<input autocomplete="off" class="input" id="song_morning" maxlength="200" name="song_morning" placeholder="ชื่อเพลง, หรือ ชื่อเพลง + ศิลปิน" required="" type="text"/>
+<div class="counter" id="c_morning">0 / 200</div>
+<small class="hint">ตัวอย่าง: “แสงสุดท้าย - Bodyslam, วันหนึ่งฉันเดินเข้าป่า - Max Jenmana”</small>
+</div>
+<!-- Afternoon -->
+<div class="form-group">
+<label for="song_afternoon">🌤️ ขอเพลงช่วงกลางวัน</label>
+<svg class="icon" fill="none" viewbox="0 0 24 24">
+<path d="M12 2v4m0 12v4m10-10h-4M6 12H2m14.95-6.95-2.83 2.83M7.88 16.12l-2.83 2.83m12.02 0-2.83-2.83M7.88 7.88 5.05 5.05" stroke="#111" stroke-linecap="round" stroke-width="1.6"></path>
+</svg>
+<input autocomplete="off" class="input" id="song_afternoon" maxlength="200" name="song_afternoon" placeholder="ชื่อเพลง, หรือ ชื่อเพลง + ศิลปิน" required="" type="text"/>
+<div class="counter" id="c_afternoon">0 / 200</div>
+<small class="hint">แยกหลายเพลงด้วยเครื่องหมายจุลภาค ,</small>
+</div>
+<!-- Evening -->
+<div class="form-group">
+<label for="song_evening">🌆 ขอเพลงช่วงหลังเลิกงาน</label>
+<svg class="icon" fill="none" viewbox="0 0 24 24">
+<path d="M3 12s3-5 9-5 9 5 9 5-3 5-9 5-9-5-9-5Z" stroke="#111" stroke-linecap="round" stroke-width="1.6"></path>
+</svg>
+<input autocomplete="off" class="input" id="song_evening" maxlength="200" name="song_evening" placeholder="ชื่อเพลง, หรือ ชื่อเพลง + ศิลปิน" required="" type="text"/>
+<div class="counter" id="c_evening">0 / 200</div>
+<small class="hint">เน้นเพลงชิลล์ๆ ฟังสบายก็ได้</small>
+</div>
+</div>
+<div class="actions">
+<button id="submitButton" type="submit">ส่งคำขอ</button>
+<button aria-label="ล้างฟอร์ม" class="subtle" id="resetBtn" type="reset">ล้าง</button>
+</div>
+<div aria-live="polite" class="meta">
+<span class="pill">⏱ ใช้เวลา ~10 วินาที</span>
+<span class="pill">📄 ส่งเข้าชีท Google Sheet</span>
+</div>
+</form>
+<section aria-live="assertive" class="success" id="success-message" role="status">
+<h2>✅ ส่งคำขอเรียบร้อย!</h2>
+<p>ขอบคุณที่ร่วมคัดเพลงด้วยกัน 🎧</p>
+<div style="margin-top:14px">
+<button class="subtle" id="newReqBtn" type="button">ส่งคำขอใหม่</button>
+</div>
+</section>000
+<footer>สร้างด้วย 💜 เพื่อเสียงดนตรีที่คุณเลือกเอง</footer>
+</main>
+<script>
+  window.SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwuNLgbdVx1F6-xk_KXJIUYlwZFTcnDQyaoWmsbmhj9PeGSfnJ5z9jarNxDk4WLcygN6g/exec';
+</script>
 
-        <!-- Afternoon -->
-        <div class="form-group">
-          <label for="song_afternoon">🌤️ ขอเพลงช่วงกลางวัน</label>
-          <svg class="icon" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2v4m0 12v4m10-10h-4M6 12H2m14.95-6.95-2.83 2.83M7.88 16.12l-2.83 2.83m12.02 0-2.83-2.83M7.88 7.88 5.05 5.05" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-          <input class="input" type="text" id="song_afternoon" name="entry.1016140276" required placeholder="ชื่อเพลง, หรือ ชื่อเพลง + ศิลปิน" maxlength="200" autocomplete="off"/>
-          <div class="counter" id="c_afternoon">0 / 200</div>
-          <small class="hint">แยกหลายเพลงด้วยเครื่องหมายจุลภาค ,</small>
-        </div>
-
-        <!-- Evening -->
-        <div class="form-group">
-          <label for="song_evening">🌆 ขอเพลงช่วงหลังเลิกงาน</label>
-          <svg class="icon" viewBox="0 0 24 24" fill="none">
-            <path d="M3 12s3-5 9-5 9 5 9 5-3 5-9 5-9-5-9-5Z" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-          <input class="input" type="text" id="song_evening" name="entry.967994178" required placeholder="ชื่อเพลง, หรือ ชื่อเพลง + ศิลปิน" maxlength="200" autocomplete="off"/>
-          <div class="counter" id="c_evening">0 / 200</div>
-          <small class="hint">เน้นเพลงชิลล์ๆ ฟังสบายก็ได้</small>
-        </div>
-      </div>
-
-      <div class="actions">
-        <button type="submit" id="submitButton">ส่งคำขอ</button>
-        <button type="reset" class="subtle" id="resetBtn" aria-label="ล้างฟอร์ม">ล้าง</button>
-      </div>
-
-      <div class="meta" aria-live="polite">
-        <span class="pill">⏱ ใช้เวลา ~10 วินาที</span>
-        <span class="pill">🔒 ข้อมูลถูกส่งแบบไม่ระบุตัวตน</span>
-      </div>
-    </form>
-
-    <section class="success" id="success-message" role="status" aria-live="assertive">
-      <h2>✅ ส่งคำขอเรียบร้อย!</h2>
-      <p>ขอบคุณที่ร่วมคัดเพลงด้วยกัน 🎧</p>
-      <div style="margin-top:14px">
-        <button class="subtle" id="newReqBtn" type="button">ส่งคำขอใหม่</button>
-      </div>
-    </section>
-
-    <footer>สร้างด้วย 💜 เพื่อเสียงดนตรีที่คุณเลือกเอง</footer>
-  </main>
-
-  <script>
     (function(){
       const form = document.getElementById('songRequestForm');
       const success = document.getElementById('success-message');
       const btn = document.getElementById('submitButton');
       const newBtn = document.getElementById('newReqBtn');
       const resetBtn = document.getElementById('resetBtn');
+
+
+      // If you set window.SCRIPT_URL in a separate <script> tag, use it.
+      if (window.SCRIPT_URL) {
+        form.action = window.SCRIPT_URL;
+      }
+
 
       const fields = [
         { el: document.getElementById('song_morning'), counter: document.getElementById('c_morning') },
