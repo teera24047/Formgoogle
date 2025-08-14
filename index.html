@@ -240,8 +240,8 @@
 <h1>ฟอร์มขอเพลง</h1>
 <p>ใส่รายชื่อเพลงที่อยากฟังในแต่ละช่วงเวลา ทุกคำขอจะถูกส่งไปยัง Google Forms</p>
 </div>
-<p style="margin:6px 0 0;color:rgba(255,255,255,.85);font-size:12px">หมายเหตุ: ฟอร์มนี้จะส่งข้อมูลเข้า Google Sheet โดยอัตโนมัติ</p></header>
-<form action="SCRIPT_URL" id="songRequestForm" method="POST" novalidate="">
+<p style="margin:6px 0 0;color:rgba(255,255,255,.85);font-size:12px">หมายเหตุ: โปรดแทนที่ SCRIPT_URL ด้วยลิงก์ Web App ของ Google Apps Script ที่คุณ deploy</p></header>
+<form action="https://script.google.com/macros/s/AKfycbzhjR8m-Xkhr2ueHRo86VXNT-AReupxUpZC5nB2dfQhKhCmv5CUyEwjmxife0yI55Ijdw/exec" id="songRequestForm" method="POST" novalidate="">
 <div class="grid">
 <div class="form-group">
 <label for="requester_name">👤 ชื่อผู้ขอเพลง</label>
@@ -306,26 +306,16 @@
 <div style="margin-top:14px">
 <button class="subtle" id="newReqBtn" type="button">ส่งคำขอใหม่</button>
 </div>
-</section>000
+</section>
 <footer>สร้างด้วย 💜 เพื่อเสียงดนตรีที่คุณเลือกเอง</footer>
 </main>
-<script>
-  window.SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwuNLgbdVx1F6-xk_KXJIUYlwZFTcnDQyaoWmsbmhj9PeGSfnJ5z9jarNxDk4WLcygN6g/exec';
-</script>
-
+<script>window.SCRIPT_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLiAd7Nvldvss9co2xoT48YXZDJJ81z6EK0zlNT4OyHPLaBSAVcOeYjKFLzvrmcHEWpX6t58qFngb2Uf9BdxdPriZVlTQahvUl9_9JJXdzdAFvPC8w1FChFa7L4idPtke9gR0QPL5nfezPeHGxd3LH7fFuewgM2CzcTgqrIGdBi-VmDVpxNgywg4LOelUuPmEDJjvMUDDUPNCKNgZSWx_1-J8Ni266fB6H7f5YBL_cnAQ5_XD-jtiLSzev1iAO0URR4xOAkslCgC6Pt78IllRrOwYTeokg&lib=M1w4LuLtlKiATwRNuE2VFSqlsN7pzXVW1';</script><script>
     (function(){
       const form = document.getElementById('songRequestForm');
       const success = document.getElementById('success-message');
       const btn = document.getElementById('submitButton');
       const newBtn = document.getElementById('newReqBtn');
       const resetBtn = document.getElementById('resetBtn');
-
-
-      // If you set window.SCRIPT_URL in a separate <script> tag, use it.
-      if (window.SCRIPT_URL) {
-        form.action = window.SCRIPT_URL;
-      }
-
 
       const fields = [
         { el: document.getElementById('song_morning'), counter: document.getElementById('c_morning') },
@@ -389,4 +379,6 @@
     })();
   </script>
 </body>
+<script src="./app.js"></script>
+
 </html>
